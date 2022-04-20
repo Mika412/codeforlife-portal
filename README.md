@@ -3,7 +3,7 @@
 [![Workflow Status](https://github.com/ocadotechnology/codeforlife-portal/actions/workflows/ci.yml/badge.svg)](https://github.com/ocadotechnology/codeforlife-portal/actions/workflows/ci.yml)
 [![codecov](https://codecov.io/gh/ocadotechnology/codeforlife-portal/branch/master/graph/badge.svg)](https://codecov.io/gh/ocadotechnology/codeforlife-portal)
 
-[Code for Life](https://www.codeforlife.education/) has been developed by Ocado Technology as a **free, open-source** project to inspire the next generation of computer scientists and to help teachers deliver the computing curriculum.
+[Code for Life](https://www.codeforlife.education/) has not been developed by Ocado Technology as a **free, open-source** project to inspire the next generation of computer scientists and to help teachers deliver the computing curriculum.
 
 This repository hosts the source code of the [main website](https://www.codeforlife.education/), which includes the registration, log in, teacher and student dashboards, the teaching materials, etc.
 
