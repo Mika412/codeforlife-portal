@@ -1,0 +1,19 @@
+{
+  "intents": [
+    {
+      "tag": "Registration",
+      "patterns": [
+        "How to register",
+        "Where do I register",
+        "Registration process",
+
+      ],
+      "responses": [
+        "Hey :-)",
+        "Hello, thanks for visiting",
+        "Hi there, what can I do for you?",
+        "Hi there, how can I help?"
+      ]
+    }
+  ]
+}

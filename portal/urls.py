@@ -21,6 +21,7 @@ from portal.helpers.ratelimit import (
 )
 from portal.helpers.regexes import ACCESS_CODE_REGEX
 from portal.views.about import about, getinvolved, contribute
+from portal.views.chatbot import Chatbot
 from portal.views.admin import (
     AdminChangePasswordDoneView,
     AdminChangePasswordView,
@@ -411,6 +412,7 @@ urlpatterns = [
         name="teacher_move_students_to_class",
     ),
     url(r"^delete/account/$", delete_account, name="delete_account"),
+    url(r"^chatbot/(?P<question>\w+)/$", Chatbot.as_view(), name="chatbot"),
     url(
         r"^schools/anonymise/(?P<start_id>\d+)/", AnonymiseOrphanSchoolsView.as_view(), name="anonymise_orphan_schools"
     ),
