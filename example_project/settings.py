@@ -3,6 +3,8 @@ import os
 
 DEBUG = True
 
+ALLOWED_HOSTS = ["localhost", "172.17.0.1"]
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",

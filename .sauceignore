@@ -1,0 +1,57 @@
+# This file instructs saucectl to not package any files mentioned here.
+/examples/
+/artifacts/
+cypress/videos/
+cypress/results/
+cypress/screenshots/
+# Remove this to have node_modules uploaded with code
+node_modules/
+.git/
+.github/
+.DS_Store
+.hg/
+.vscode/
+.idea/
+.gitignore
+.hgignore
+.gitlab-ci.yml
+.npmrc
+*.gif
+
+# from .gitignore
+*.log
+*.pyc
+local_settings.py
+/static/
+/VIRTUALENV/
+/env/
+*.iml
+*~
+settings.json
+
+__pycache__
+.settings
+.project
+.pydevproject
+.idea
+dbfile
+testdbfile
+*.orig
+.sass-cache
+*.DS_Store
+*.jshintrc
+portal/tests/chromedriver
+
+db.sqlite3
+example_project/static/
+codeforlife_portal.egg-info
+*.egg-info/
+build/
+dist/
+node_modules
+
+# Cypress generated folder
+/cypress
+
+# react frontend
+/portal/frontend
