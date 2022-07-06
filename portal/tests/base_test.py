@@ -10,18 +10,30 @@ from deploy import captcha
 # master_browser = webdriver.Firefox()
 from portal.tests.pageObjects.portal.home_page import HomePage
 from .selenium_test_case import SeleniumTestCase
+from django.contrib.staticfiles.testing import LiveServerTestCase
+from saucebindings.options import SauceOptions
+from saucebindings.session import SauceSession
 
 
-class BaseTest(SeleniumTestCase):
+# class BaseTest(SeleniumTestCase):
+class BaseTest(LiveServerTestCase):
     @classmethod
     def setUpClass(cls):
+        super(BaseTest, cls).setUpClass()
         cls.orig_captcha_enabled = captcha.CAPTCHA_ENABLED
         captcha.CAPTCHA_ENABLED = False
-        super(BaseTest, cls).setUpClass()
+
+        options = SauceOptions.chrome()
+        options.screen_resolution = "1920x1080"
+
+        cls.sauce_session = SauceSession(options=options)
+        cls.sauce_session.start()
+        cls.selenium = cls.sauce_session.driver
 
     @classmethod
     def tearDownClass(cls):
         captcha.CAPTCHA_ENABLED = cls.orig_captcha_enabled
+        cls.sauce_session.stop(True)
         super(BaseTest, cls).tearDownClass()
 
     def go_to_homepage(self):

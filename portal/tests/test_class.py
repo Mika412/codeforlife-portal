@@ -10,6 +10,7 @@ from common.tests.utils.student import create_school_student_directly
 from common.tests.utils.teacher import signup_teacher_directly
 from django.test import Client, TestCase
 from django.urls import reverse
+from portal.tests.pageObjects.portal.home_page import HomePage
 
 from portal.tests.utils.classes import create_class
 from .base_test import BaseTest
@@ -159,6 +160,21 @@ class TestClass(TestCase):
         assert teacher2_classes[1] == klass2
         assert not teacher1.teaches(student2.user)
         assert teacher2.teaches(student2.user)
+
+
+def test_create(driver):
+    email, password = signup_teacher_directly()
+    create_organisation_directly(email)
+
+    path = reverse("home")
+    driver.get(path)
+    page = HomePage(driver)
+    page = page.go_to_teacher_login_page().login_no_class(email, password).open_classes_tab()
+
+    assert page.does_not_have_classes()
+
+    page, class_name = create_class(page)
+    assert is_class_created_message_showing(driver, class_name)
 
 
 # Class for Selenium tests. We plan to replace these and turn them into Cypress tests

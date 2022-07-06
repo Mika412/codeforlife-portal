@@ -1,27 +1,42 @@
 import os
 
 from selenium import webdriver
+from saucebindings.options import SauceOptions
+from saucebindings.session import SauceSession
 
 DEBUG = True
 
-headless_chrome_options = webdriver.ChromeOptions()
-headless_chrome_options.add_argument("--headless")
-headless_chrome_options.add_argument("--window-size=1920,1080")
-headless_chrome_options.add_argument("--start-maximized")
-headless_chrome_options.add_argument("--disable-gpu")
-headless_chrome_options.add_argument("--no-sandbox")
-headless_chrome_options.add_argument("--disable-extensions")
-headless_chrome_options.add_argument("--disable-dev-shm-usage")
+options = SauceOptions.chrome()
+options.screen_resolution = "1920x1080"
+
+# headless_chrome_options = webdriver.ChromeOptions()
+# headless_chrome_options.add_argument("--headless")
+# headless_chrome_options.add_argument("--window-size=1920,1080")
+# headless_chrome_options.add_argument("--start-maximized")
+# headless_chrome_options.add_argument("--disable-gpu")
+# headless_chrome_options.add_argument("--no-sandbox")
+# headless_chrome_options.add_argument("--disable-extensions")
+# headless_chrome_options.add_argument("--disable-dev-shm-usage")
+
+# SELENIUM_WEBDRIVERS = {
+#     "default": {"callable": webdriver.Chrome, "args": (), "kwargs": {}},
+#     "firefox": {"callable": webdriver.Firefox, "args": (), "kwargs": {}},
+#     "chrome-headless": {
+#         "callable": webdriver.Chrome,
+#         "args": (),
+#         "kwargs": {"options": headless_chrome_options},
+#     },
+# }
 
 SELENIUM_WEBDRIVERS = {
-    "default": {"callable": webdriver.Chrome, "args": (), "kwargs": {}},
-    "firefox": {"callable": webdriver.Firefox, "args": (), "kwargs": {}},
-    "chrome-headless": {
-        "callable": webdriver.Chrome,
+    "default": {
+        # "callable": webdriver.Chrome,
+        "callable": SauceSession().driver,
         "args": (),
-        "kwargs": {"options": headless_chrome_options},
+        "kwargs": {"options": options},
     },
 }
+
 
 SELENIUM_WIDTHS = [1624]
 
