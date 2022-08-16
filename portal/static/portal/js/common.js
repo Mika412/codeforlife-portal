@@ -90,7 +90,7 @@ function hideSessionPopup() {
   resetTimer(minutesDisplay, secondsDisplay)
 
   // Show the popup again after 28 minutes - just in case the user stays on the same page
-  setTimeout(showSessionPopup, 1680000);
+  setTimeout(showSessionPopup, 180000);
 }
 
 function startTimer(duration, minutesDisplay, secondsDisplay) {
@@ -106,7 +106,7 @@ function startTimer(duration, minutesDisplay, secondsDisplay) {
     secondsDisplay.text(seconds);
 
     if (--timer < 0) {
-      document.location.reload(true);
+      window.location.href = "/"
     }
   }, 1000);
 }

@@ -14,7 +14,7 @@ DEBUG = getattr(settings, "DEBUG", False)
 IS_CLOUD_SCHEDULER_FUNCTION = getattr(settings, "IS_CLOUD_SCHEDULER_FUNCTION", lambda _: False)
 
 # Half an hour
-SESSION_EXPIRY_TIME = 60 * 30
+SESSION_EXPIRY_TIME = 60 * 3
 
 # One hour
 SCREENTIME_WARNING_EXPIRY_TIME = 60 * 60
